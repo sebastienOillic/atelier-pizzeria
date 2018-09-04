@@ -170,4 +170,22 @@ class Pizza
 
         return $this;
     }
+
+    /**
+     * Get the corresponding row of the pizza
+     * 
+     * @return string corresponding row
+     */
+    public function generateTableRow()
+    {
+        $string = '<tr>
+            <td>'.$this->getId().'</td>
+            <td>'.$this->getLibelle().'</td>
+            <td>'.$this->getReference().'</td>
+            <td>'.$this->getPrix().'</td>
+            <td><img src="img/'.$this->getUrlImage().'" width="200px"/></td>
+            <td><a href="#">Modifier</a></td>
+            <td><a href="#">Supprimer</a></td></tr>';
+            return $string;
+    }
 }
