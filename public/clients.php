@@ -18,18 +18,27 @@ $res = $qb->getQuery()->getResult();
     </thead>
     <?php
     foreach ($res as $client) {
-        $string = '<tr>
-            <td>'.$client->getId().'</td>
-            <td>'.$client->getNom().'</td>
-            <td>'.$client->getPrenom().'</td>
-            <td>'.$client->getVille().'</td>
-            <td>'.$client->getAge().'</td>
-            <td><a href="#">Modifier</a></td>
-            <td><a href="#">Supprimer</a></td>';
-            echo $string;
+        ?>
+        <?= $client->generateTableRow() ?>
+        <?php
     }
     ?>
 </table>
+    <h2>Ajout d'un client</h2>
+
+<form action="clientAdd.php" method="get">
+    <table>
+        <tr><td><label for="nom">Nom :</label></td>
+        <td><input type="text" name="nom" id="nom" required></td></tr>
+        <tr><td><label for="prenom">Prenom : </label></td>
+        <td><input type="text" name="prenom" id="prenom" required></td></tr>
+        <tr><td><label for="ville">Ville : </label></td>
+        <td><input type="text" name="ville" id="ville" required></td></tr>
+        <tr><td><label for="age">Age : </label></td>
+        <td><input type="number" name="age" id="age" required></td></tr>
+        <tr><td><input type="submit"></td></tr>
+    </table>
+</form>
 <?php
 require_once __DIR__."/../src/template/footer.php";
 ?>

@@ -169,4 +169,21 @@ class Client
 
         return $this;
     }
+    /**
+     * Get the corresponding row of the client
+     * 
+     * @return string corresponding row
+     */
+    public function generateTableRow()
+    {
+        $string = '<tr>
+            <td>'.$this->getId().'</td>
+            <td>'.$this->getNom().'</td>
+            <td>'.$this->getPrenom().'</td>
+            <td>'.$this->getVille().'</td>
+            <td>'.$this->getAge().'</td>
+            <td><a href="#">Modifier</a></td>
+            <td><a href="#">Supprimer</a></td></tr>';
+            return $string;
+    }
 }
