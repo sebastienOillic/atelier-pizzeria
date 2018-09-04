@@ -24,18 +24,43 @@ $res = $qb->getQuery()->getResult();
     }
     ?>
 </table>
-    <h2>Ajout d'un client</h2>
+    <h2>Ajout d'une commande</h2>
 
-<form action="clientAdd.php" method="post">
+<form action="commandAdd.php" method="post">
     <table>
-        <tr><td><label for="nom">Nom :</label></td>
-        <td><input type="text" name="nom" id="nom" required></td></tr>
-        <tr><td><label for="prenom">Prenom : </label></td>
-        <td><input type="text" name="prenom" id="prenom" required></td></tr>
-        <tr><td><label for="ville">Ville : </label></td>
-        <td><input type="text" name="ville" id="ville" required></td></tr>
-        <tr><td><label for="age">Age : </label></td>
-        <td><input type="number" name="age" id="age" required></td></tr>
+        <tr><td><label for="numero">numero :</label></td>
+        <td><input type="number" name="numero" id="numero" required></td></tr>
+        <tr><td><label for="date">Date : </label></td>
+        <td><input type="date" name="date" id="date" required></td></tr>
+        <tr><td><label for="livrer">Livreur : </label></td>
+        <td>
+            <select name="livrer" id="livrer" required>
+                <?php
+                $qblivrer = $em->createQueryBuilder();
+                $qblivrer->SELECT('l')
+                    ->FROM("App\Entity\Livreur", 'l');
+                $livrers = $qblivrer->getQuery()->getResult();
+                foreach ($livrers as $livrer) {
+                    echo '<option value ="'.$livrer->getId().'">'.$livrer->getNom().' '.$livrer->getPrenom().'</option>';
+                }
+                ?>
+            </select>
+        </td></tr>
+        <tr><td><label for="client">Client : </label></td>
+        <td>
+            <select name="client" id="client" required>
+                <?php
+                $qbclient = $em->createQueryBuilder();
+                $qbclient->SELECT('c')
+                    ->FROM("App\Entity\Client", 'c');
+                $clients = $qbclient->getQuery()->getResult();
+                foreach ($clients as $client) {
+                    echo '<option value ="'.$client->getId().'">'.$client->getNom().' '.$client->getPrenom().'</option>';
+                }
+                ?>
+            </select>
+            </select>
+        </td></tr>
         <tr><td><input type="submit"></td></tr>
     </table>
 </form>

@@ -4,7 +4,6 @@ require_once __DIR__.'/../bootstrap.php';
 
 $fullInfo = true;
 if (empty($_POST['libelle']) || empty($_POST['reference']) || empty($_POST['prix'])|| empty($_FILES['imgPizza'])) {
-    // echo "nope"
     $fullInfo = false;
 }
 // var_dump($_POST);

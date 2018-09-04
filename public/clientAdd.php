@@ -6,12 +6,6 @@ $fullInfo = true;
 if (empty($_POST['age']) || empty($_POST['ville']) || empty($_POST['nom'])|| empty($_POST['prenom'])) {
     $fullInfo = false;
 }
-foreach ($_POST as $key => $value) {
-    if (empty($value)) {
-        $fullInfo = false;
-        break;
-    }
-}
 if ($fullInfo) {
     if (is_numeric($_POST['age']) && (int)$_POST['age'] > 0) {
         $client = new App\Entity\Client();
