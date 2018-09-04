@@ -15,6 +15,7 @@ $dbParams = array(
     'user'     => 'root',
     'password' => '',
     'dbname'   => 'pizzeria',
+    'charset'  => 'utf8mb4'
 );
 
 $cache = new \Doctrine\Common\Cache\ArrayCache();

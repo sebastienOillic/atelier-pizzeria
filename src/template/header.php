@@ -8,12 +8,17 @@ require_once __DIR__."/../../bootstrap.php";
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
    <title>Démo PHP</title>
+   <style>
+   .header-container, .header-content{
+       display: inline-block
+   }
+   </style>
 </head>
 <body>
     <header>
     <div class="header-container">
-        <li><a href="clients.php">Clients</a></li>
-        <li><a href="pizzas.php">Pizzas</a></li>
-        <li><a href="commandes.php">Commandes</a></li>
-    </div class="header-container">
+        <div class="header-content"><a href="clients.php">Clients</a></div>
+        <div class="header-content"><a href="pizzas.php">Pizzas</a></div>
+        <div class="header-content"><a href="commandes.php">Commandes</a></div>
+    </div>
     </header>
