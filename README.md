@@ -1,12 +1,14 @@
 # Atelier Pizzeria
 
-> prérequis :  Avoir composer d'installé et présent dans les variables d'environnement
+prérequis :  
+- Avoir composer d'installé et présent dans les variables d'environnement
+- Avoir un serveur XAMPP/LAMP/MAMP installé
 
 ## Installation
 
+- Executer le fichier src/BDD_pizzeria.sql
+- taper en console : 
 > composer install
-> composer dump-autoload
-> 
 
 ## Base de données
 
