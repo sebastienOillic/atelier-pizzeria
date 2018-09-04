@@ -170,4 +170,35 @@ class Commande
 
         return $this;
     }
+
+    /**
+     * Get the corresponding row of the command
+     * 
+     * @return string corresponding row
+     */
+    public function generateTableRow($em)
+    {
+        $qbClient = $em->createQueryBuilder();
+        $qbClient->SELECT('c')
+            ->FROM('App\Entity\Client', 'c')
+            ->WHERE('c.id = ?1')
+            ->setParameter(1, $this->getClientId());
+        $client = $qbClient->getQuery()->getResult();
+
+        $qbLivrer = $em->createQueryBuilder();
+        $qbLivrer->SELECT('c')
+            ->FROM('App\Entity\Client', 'c')
+            ->WHERE('c.id = ?1')
+            ->setParameter(1, $this->getLivreurId());
+        $livrer = $qbLivrer->getQuery()->getResult();
+        $string = '<tr>
+            <td>'.$this->getId().'</td>
+            <td>'.$this->getNumeroCommande().'</td>
+            <td>'.$this->getDateCommande()->format('Y-m-d').'</td>
+            <td>'.$client[0]->getNom().' '.$client[0]->getPrenom().'</td>
+            <td>'.$livrer[0]->getNom().' '.$livrer[0]->getPrenom().'</td>
+            <td><a href="#">Modifier</a></td>
+            <td><a href="#">Supprimer</a></td></tr>';
+            return $string;
+    }
 }

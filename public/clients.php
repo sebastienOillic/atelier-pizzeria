@@ -26,7 +26,7 @@ $res = $qb->getQuery()->getResult();
 </table>
     <h2>Ajout d'un client</h2>
 
-<form action="clientAdd.php" method="get">
+<form action="clientAdd.php" method="post">
     <table>
         <tr><td><label for="nom">Nom :</label></td>
         <td><input type="text" name="nom" id="nom" required></td></tr>

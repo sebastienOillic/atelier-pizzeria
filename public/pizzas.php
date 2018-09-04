@@ -24,7 +24,21 @@ $res = $qb->getQuery()->getResult();
     }
     ?>
 </table>
+    <h2>Ajout d'une pizza</h2>
 
+<form action="pizzaAdd.php" method="post" enctype="multipart/form-data">
+    <table>
+        <tr><td><label for="libelle">Libellé :</label></td>
+        <td><input type="text" name="libelle" id="libelle" required></td></tr>
+        <tr><td><label for="reference">Référence : </label></td>
+        <td><input type="text" name="reference" id="reference" required></td></tr>
+        <tr><td><label for="prix">Prix : </label></td>
+        <td><input type="number" name="prix" id="prix" required></td></tr>
+        <tr><td><label for="imgPizza">Image (.jpg/.jpeg uiniquement) : </label></td>
+        <td><input type="file" name="imgPizza" id="imgPizza" required></td></tr>
+        <tr><td><input type="submit"></td></tr>
+    </table>
+</form>
 <?php
 require_once __DIR__."/../src/template/footer.php";
 ?>

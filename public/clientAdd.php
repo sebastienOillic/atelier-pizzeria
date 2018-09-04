@@ -3,22 +3,22 @@
 require_once __DIR__.'/../bootstrap.php';
 
 $fullInfo = true;
-if (!isset($_GET['age']) || !isset($_GET['ville']) || !isset($_GET['nom'])|| !isset($_GET['prenom'])) {
+if (empty($_POST['age']) || empty($_POST['ville']) || empty($_POST['nom'])|| empty($_POST['prenom'])) {
     $fullInfo = false;
 }
-foreach ($_GET as $key => $value) {
+foreach ($_POST as $key => $value) {
     if (empty($value)) {
         $fullInfo = false;
         break;
     }
 }
 if ($fullInfo) {
-    if (is_numeric($_GET['age']) && (int)$_GET['age'] > 0) {
+    if (is_numeric($_POST['age']) && (int)$_POST['age'] > 0) {
         $client = new App\Entity\Client();
-        $client->setAge((int)$_GET['age'])
-            ->setVille($_GET['ville'])
-            ->setNom($_GET['nom'])
-            ->setPrenom($_GET['prenom']);
+        $client->setAge((int)$_POST['age'])
+            ->setVille($_POST['ville'])
+            ->setNom($_POST['nom'])
+            ->setPrenom($_POST['prenom']);
 
         $em->persist($client);
         $em->flush();
