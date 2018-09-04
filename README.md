@@ -1,5 +1,13 @@
 # Atelier Pizzeria
 
+> prérequis :  Avoir composer d'installé et présent dans les variables d'environnement
+
+## Installation
+
+> composer install
+> composer dump-autoload
+> 
+
 ## Base de données
 
 - Créer une base de données Pizzeria à partir du script `BDD_pizzeria.sql`.
